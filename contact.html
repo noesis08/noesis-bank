@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — NOESIS Bank & Trust</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0a1628;
+            --navy-light: #1a2a4a;
+            --gold: #c9a84c;
+            --gold-light: #e8d5a3;
+            --white: #ffffff;
+            --offwhite: #f8f6f1;
+            --gray: #6b7280;
+            --light-gray: #e5e7eb;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--navy); background: var(--white); line-height: 1.6; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+        a { text-decoration: none; color: inherit; }
+
+        .top-bar { background: var(--navy); color: var(--gold-light); padding: 8px 0; font-size: 13px; }
+        .top-bar .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+        .top-bar a { color: var(--gold-light); margin-left: 20px; font-weight: 500; }
+        .top-bar a:hover { color: var(--gold); }
+
+        nav { background: var(--white); border-bottom: 1px solid var(--light-gray); position: sticky; top: 0; z-index: 100; }
+        nav .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; height: 72px; }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { width: 42px; height: 42px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-weight: 700; font-size: 18px; font-family: 'Playfair Display', serif; border: 2px solid var(--gold); }
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--navy); letter-spacing: 2px; }
+        .logo-sub { font-size: 10px; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-top: -4px; }
+        .nav-links { display: flex; gap: 36px; list-style: none; }
+        .nav-links a { font-weight: 500; font-size: 15px; color: var(--navy); transition: color 0.3s; position: relative; }
+        .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+        .nav-links a.active::after { content: ''; position: absolute; bottom: -24px; left: 0; right: 0; height: 3px; background: var(--gold); }
+        .nav-cta { background: var(--navy); color: var(--gold); padding: 10px 24px; border-radius: 4px; font-weight: 600; font-size: 14px; border: 1px solid var(--gold); transition: all 0.3s; }
+        .nav-cta:hover { background: var(--gold); color: var(--navy); }
+
+        .page-header { background: var(--navy); color: var(--white); padding: 100px 0 80px; text-align: center; position: relative; }
+        .page-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('https://kimi-web-img.moonshot.cn/img/mojostumer.com/34886546cf386248ccc8cf921f926001f1798974.jpg') center/cover; opacity: 0.12; }
+        .page-header .container { max-width: 800px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+        .page-header h1 { font-size: 52px; margin-bottom: 16px; }
+        .page-header h1 span { color: var(--gold); }
+        .page-header p { color: rgba(255,255,255,0.7); font-size: 18px; }
+        .breadcrumb { display: flex; justify-content: center; gap: 12px; margin-top: 24px; font-size: 14px; color: rgba(255,255,255,0.5); }
+        .breadcrumb a { color: var(--gold-light); }
+        .breadcrumb a:hover { color: var(--gold); }
+
+        .contact-section { padding: 80px 0; background: var(--white); }
+        .contact-section .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        .contact-info h2 { font-size: 36px; margin-bottom: 16px; }
+        .contact-info > p { color: var(--gray); font-size: 17px; margin-bottom: 40px; }
+        .contact-methods { display: flex; flex-direction: column; gap: 28px; }
+        .contact-method { display: flex; align-items: flex-start; gap: 20px; padding: 24px; background: var(--offwhite); border-radius: 12px; border: 1px solid var(--light-gray); transition: all 0.3s; }
+        .contact-method:hover { border-color: var(--gold); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+        .contact-method-icon { width: 52px; height: 52px; background: var(--navy); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 22px; flex-shrink: 0; }
+        .contact-method-info h4 { font-size: 18px; margin-bottom: 4px; }
+        .contact-method-info p { color: var(--gray); font-size: 15px; margin: 0; }
+        .contact-method-info a { color: var(--gold); font-weight: 600; }
+        .contact-method-info a:hover { color: var(--navy); }
+
+        .contact-form-wrapper { background: var(--offwhite); padding: 48px; border-radius: 16px; border: 1px solid var(--light-gray); }
+        .contact-form-wrapper h3 { font-size: 28px; margin-bottom: 8px; }
+        .contact-form-wrapper > p { color: var(--gray); font-size: 15px; margin-bottom: 32px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--navy); }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 16px; border: 1px solid var(--light-gray); border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 15px; background: var(--white); transition: all 0.3s; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.15); }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .btn-submit { width: 100%; background: var(--navy); color: var(--gold); padding: 16px; border-radius: 8px; font-weight: 600; font-size: 16px; border: 1px solid var(--gold); cursor: pointer; transition: all 0.3s; }
+        .btn-submit:hover { background: var(--gold); color: var(--navy); }
+
+        .branches-section { padding: 100px 0; background: var(--navy); color: var(--white); }
+        .branches-section .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .branches-section .section-header { text-align: center; margin-bottom: 60px; }
+        .branches-section .section-header h2 { color: var(--white); font-size: 42px; margin-bottom: 16px; }
+        .branches-section .section-header p { color: rgba(255,255,255,0.6); font-size: 18px; }
+        .branches-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .branch-card { background: var(--navy-light); border-radius: 16px; padding: 36px 28px; border: 1px solid rgba(201,168,76,0.15); transition: all 0.3s; }
+        .branch-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+        .branch-card h4 { color: var(--gold); font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+        .branch-card h3 { font-size: 22px; margin-bottom: 12px; color: var(--white); }
+        .branch-card p { color: rgba(255,255,255,0.6); font-size: 15px; margin-bottom: 6px; }
+        .branch-card .hours { color: var(--gold-light); font-size: 13px; margin-top: 12px; }
+
+        .map-section { padding: 0; background: var(--offwhite); }
+        .map-section .container { max-width: 1200px; margin: 0 auto; }
+        .map-placeholder { width: 100%; height: 400px; background: linear-gradient(135deg, #1a2a4a, #0a1628); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 18px; position: relative; overflow: hidden; }
+        .map-placeholder::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('https://kimi-web-img.moonshot.cn/img/weformonline.com/e03327e2505bc230dfa56accf4d7be400094522f.jpg') center/cover; opacity: 0.2; }
+        .map-placeholder span { position: relative; z-index: 1; font-family: 'Playfair Display', serif; font-size: 28px; }
+
+        footer { background: var(--navy); color: var(--white); padding: 80px 0 30px; }
+        footer .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+        .footer-brand .logo-icon { margin-bottom: 20px; }
+        .footer-brand p { color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.7; margin-bottom: 24px; }
+        .footer-social { display: flex; gap: 12px; }
+        .footer-social a { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 16px; transition: all 0.3s; }
+        .footer-social a:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
+        .footer-col h4 { color: var(--gold); font-size: 16px; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a { color: rgba(255,255,255,0.6); font-size: 15px; transition: color 0.3s; }
+        .footer-col ul li a:hover { color: var(--gold); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; }
+        .footer-bottom p { color: rgba(255,255,255,0.4); font-size: 13px; }
+
+        @media (max-width: 900px) {
+            .contact-section .container, .branches-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .page-header h1 { font-size: 36px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <span>24/7 Support: +1 (800) 555-NOESIS</span>
+            <div>
+                <a href="login.html">Internet Banking</a>
+                <a href="contact.html">Find a Branch</a>
+                <a href="contact.html">Help Center</a>
+            </div>
+        </div>
+    </div>
+
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">N</div>
+                <div>
+                    <div class="logo-text">NOESIS</div>
+                    <div class="logo-sub">Bank & Trust</div>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <a href="login.html" class="nav-cta">Online Login</a>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Get in <span>Touch</span></h1>
+            <p>We're here to help. Reach out through any channel that works for you.</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> <span>/</span> <span>Contact</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <p>Our team is available around the clock to assist you with any inquiries.</p>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-method-icon">&#9742;</div>
+                        <div class="contact-method-info">
+                            <h4>Phone Support</h4>
+                            <p>+1 (800) 555-NOESIS</p>
+                            <p style="font-size:13px;color:var(--gray);">Available 24/7 for all customers</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-method-icon">&#9993;</div>
+                        <div class="contact-method-info">
+                            <h4>Email Us</h4>
+                            <p><a href="mailto:support@noesis.bank">support@noesis.bank</a></p>
+                            <p style="font-size:13px;color:var(--gray);">Response within 2 hours</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-method-icon">&#9733;</div>
+                        <div class="contact-method-info">
+                            <h4>Live Chat</h4>
+                            <p><a href="#">Start a conversation</a></p>
+                            <p style="font-size:13px;color:var(--gray);">Instant replies during business hours</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-method-icon">&#9874;</div>
+                        <div class="contact-method-info">
+                            <h4>Headquarters</h4>
+                            <p>1 Noesis Plaza, Financial District<br>New York, NY 10005, USA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form-wrapper">
+                <h3>Send Us a Message</h3>
+                <p>Fill out the form below and we'll get back to you shortly.</p>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" placeholder="Doe" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="john.doe@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="+1 (555) 000-0000">
+                    </div>
+                    <div class="form-group">
+                        <label>Department</label>
+                        <select required>
+                            <option value="">Select a department</option>
+                            <option value="personal">Personal Banking</option>
+                            <option value="business">Business Banking</option>
+                            <option value="wealth">Wealth Management</option>
+                            <option value="support">Customer Support</option>
+                            <option value="fraud">Fraud & Security</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea placeholder="How can we help you today?"></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="branches-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Branches</h2>
+                <p>Visit us at any of our locations worldwide.</p>
+            </div>
+            <div class="branches-grid">
+                <div class="branch-card">
+                    <h4>Headquarters</h4>
+                    <h3>New York</h3>
+                    <p>1 Noesis Plaza, Financial District</p>
+                    <p>New York, NY 10005</p>
+                    <p>+1 (212) 555-0100</p>
+                    <p class="hours">Mon–Fri: 8AM–6PM | Sat: 9AM–2PM</p>
+                </div>
+                <div class="branch-card">
+                    <h4>Regional Office</h4>
+                    <h3>London</h3>
+                    <p>45 Canary Wharf Tower</p>
+                    <p>London, E14 5AB, UK</p>
+                    <p>+44 20 7946 0958</p>
+                    <p class="hours">Mon–Fri: 9AM–5PM | Sat: 10AM–2PM</p>
+                </div>
+                <div class="branch-card">
+                    <h4>Regional Office</h4>
+                    <h3>Singapore</h3>
+                    <p>88 Marina Bay Financial Centre</p>
+                    <p>Singapore 018982</p>
+                    <p>+65 6123 4567</p>
+                    <p class="hours">Mon–Fri: 9AM–6PM | Sat: 9AM–1PM</p>
+                </div>
+                <div class="branch-card">
+                    <h4>Regional Office</h4>
+                    <h3>Dubai</h3>
+                    <p>Level 42, Burj Daman Tower</p>
+                    <p>Dubai International Financial Centre</p>
+                    <p>+971 4 555 8900</p>
+                    <p class="hours">Sun–Thu: 8AM–5PM | Sat: 9AM–1PM</p>
+                </div>
+                <div class="branch-card">
+                    <h4>Flagship Branch</h4>
+                    <h3>Los Angeles</h3>
+                    <p>888 Wilshire Boulevard</p>
+                    <p>Los Angeles, CA 90017</p>
+                    <p>+1 (213) 555-0200</p>
+                    <p class="hours">Mon–Fri: 8AM–6PM | Sat: 9AM–3PM</p>
+                </div>
+                <div class="branch-card">
+                    <h4>Flagship Branch</h4>
+                    <h3>Toronto</h3>
+                    <p>200 Bay Street, Suite 3000</p>
+                    <p>Toronto, ON M5J 2J1, Canada</p>
+                    <p>+1 (416) 555-0300</p>
+                    <p class="hours">Mon–Fri: 8:30AM–5PM | Sat: 9AM–2PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container" style="padding: 0 24px;">
+            <div class="map-placeholder">
+                <span>Interactive Map — 150+ Global Locations</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-icon">N</div>
+                    <p>NOESIS Bank & Trust — Where knowledge meets prosperity. Building financial futures with integrity, innovation, and insight since 1987.</p>
+                    <div class="footer-social">
+                        <a href="#">f</a>
+                        <a href="#">in</a>
+                        <a href="#">X</a>
+                        <a href="#">ig</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Banking</h4>
+                    <ul>
+                        <li><a href="services.html">Personal Accounts</a></li>
+                        <li><a href="services.html">Business Accounts</a></li>
+                        <li><a href="services.html">Credit Cards</a></li>
+                        <li><a href="services.html">Loans & Mortgages</a></li>
+                        <li><a href="services.html">Investments</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="about.html">Leadership</a></li>
+                        <li><a href="about.html">Careers</a></li>
+                        <li><a href="about.html">Press & Media</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="login.html">Internet Banking</a></li>
+                        <li><a href="contact.html">Help Center</a></li>
+                        <li><a href="contact.html">Find a Branch</a></li>
+                        <li><a href="contact.html">Report Fraud</a></li>
+                        <li><a href="contact.html">Accessibility</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NOESIS Bank & Trust. All rights reserved. Member FDIC. Equal Housing Lender.</p>
+                <p>Privacy Policy | Terms of Service | Cookie Policy</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
