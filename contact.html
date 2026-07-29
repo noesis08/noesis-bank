@@ -3,118 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us — NOESIS Bank & Trust</title>
+    <title>About Us — NOESIS Bank & Trust</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
-        :root {
-            --navy: #0a1628;
-            --navy-light: #1a2a4a;
-            --gold: #c9a84c;
-            --gold-light: #e8d5a3;
-            --white: #ffffff;
-            --offwhite: #f8f6f1;
-            --gray: #6b7280;
-            --light-gray: #e5e7eb;
+        .story-section { padding: 80px 0; background: var(--white); }
+        .story-section .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .story-visual { display: flex; justify-content: center; align-items: center; min-height: 350px; background: linear-gradient(135deg, var(--navy-light), var(--navy)); border-radius: 16px; }
+        .story-visual-inner { text-align: center; color: var(--white); }
+        .story-visual-inner .big-n { font-family: 'Playfair Display', serif; font-size: 120px; color: var(--gold); line-height: 1; }
+        .story-visual-inner p { font-size: 14px; color: rgba(255,255,255,0.6); margin-top: 10px; letter-spacing: 3px; text-transform: uppercase; }
+        .story-content h2 { font-size: 32px; margin-bottom: 20px; }
+        .story-content h2 span { color: var(--gold); }
+        .story-content p { color: var(--gray); font-size: 15px; margin-bottom: 16px; line-height: 1.8; }
+        .story-quote { border-left: 4px solid var(--gold); padding-left: 20px; margin: 24px 0; font-style: italic; color: var(--navy); font-size: 18px; font-family: 'Playfair Display', serif; }
+
+        .values-section { padding: 80px 0; background: var(--offwhite); }
+        .values-section .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .value-card { background: var(--white); padding: 32px 24px; border-radius: 12px; text-align: center; border: 1px solid var(--light-gray); transition: all 0.3s; }
+        .value-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); border-color: var(--gold); }
+        .value-icon { width: 52px; height: 52px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 22px; margin: 0 auto 16px; }
+        .value-card h3 { font-size: 18px; margin-bottom: 10px; }
+        .value-card p { color: var(--gray); font-size: 13px; }
+
+        .timeline-section { padding: 80px 0; background: var(--white); }
+        .timeline-section .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        .timeline { position: relative; padding-left: 36px; }
+        .timeline::before { content: ''; position: absolute; left: 13px; top: 0; bottom: 0; width: 2px; background: var(--gold); }
+        .timeline-item { position: relative; margin-bottom: 40px; }
+        .timeline-item::before { content: ''; position: absolute; left: -29px; top: 4px; width: 14px; height: 14px; background: var(--gold); border-radius: 50%; border: 3px solid var(--white); box-shadow: 0 0 0 3px var(--gold); }
+        .timeline-year { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--gold); font-weight: 700; margin-bottom: 6px; }
+        .timeline-item h3 { font-size: 20px; margin-bottom: 6px; }
+        .timeline-item p { color: var(--gray); font-size: 14px; }
+
+        .team-section { padding: 80px 0; background: var(--navy); color: var(--white); }
+        .team-section .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .team-section .section-header h2 { color: var(--white); }
+        .team-section .section-header p { color: rgba(255,255,255,0.6); }
+        .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .team-card { background: var(--navy-light); border-radius: 12px; overflow: hidden; border: 1px solid rgba(201,168,76,0.2); transition: all 0.3s; }
+        .team-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+        .team-img { height: 180px; background: linear-gradient(135deg, var(--navy-light), #2a3a5a); display: flex; align-items: center; justify-content: center; font-size: 48px; color: var(--gold); }
+        .team-info { padding: 20px; }
+        .team-info h4 { font-size: 18px; margin-bottom: 3px; color: var(--white); }
+        .team-info p { color: var(--gold); font-size: 13px; margin-bottom: 8px; }
+        .team-info span { color: rgba(255,255,255,0.5); font-size: 12px; }
+
+        @media (max-width: 768px) {
+            .story-section .container { grid-template-columns: 1fr; }
+            .values-grid, .team-grid { grid-template-columns: repeat(2, 1fr); }
+            .story-visual { min-height: 250px; }
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; color: var(--navy); background: var(--white); line-height: 1.6; }
-        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
-        a { text-decoration: none; color: inherit; }
-
-        .top-bar { background: var(--navy); color: var(--gold-light); padding: 8px 0; font-size: 13px; }
-        .top-bar .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
-        .top-bar a { color: var(--gold-light); margin-left: 20px; font-weight: 500; }
-        .top-bar a:hover { color: var(--gold); }
-
-        nav { background: var(--white); border-bottom: 1px solid var(--light-gray); position: sticky; top: 0; z-index: 100; }
-        nav .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; height: 72px; }
-        .logo { display: flex; align-items: center; gap: 12px; }
-        .logo-icon { width: 42px; height: 42px; background: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); font-weight: 700; font-size: 18px; font-family: 'Playfair Display', serif; border: 2px solid var(--gold); }
-        .logo-text { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--navy); letter-spacing: 2px; }
-        .logo-sub { font-size: 10px; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; margin-top: -4px; }
-        .nav-links { display: flex; gap: 36px; list-style: none; }
-        .nav-links a { font-weight: 500; font-size: 15px; color: var(--navy); transition: color 0.3s; position: relative; }
-        .nav-links a:hover, .nav-links a.active { color: var(--gold); }
-        .nav-links a.active::after { content: ''; position: absolute; bottom: -24px; left: 0; right: 0; height: 3px; background: var(--gold); }
-        .nav-cta { background: var(--navy); color: var(--gold); padding: 10px 24px; border-radius: 4px; font-weight: 600; font-size: 14px; border: 1px solid var(--gold); transition: all 0.3s; }
-        .nav-cta:hover { background: var(--gold); color: var(--navy); }
-
-        .page-header { background: var(--navy); color: var(--white); padding: 100px 0 80px; text-align: center; position: relative; }
-        .page-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('https://kimi-web-img.moonshot.cn/img/mojostumer.com/34886546cf386248ccc8cf921f926001f1798974.jpg') center/cover; opacity: 0.12; }
-        .page-header .container { max-width: 800px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
-        .page-header h1 { font-size: 52px; margin-bottom: 16px; }
-        .page-header h1 span { color: var(--gold); }
-        .page-header p { color: rgba(255,255,255,0.7); font-size: 18px; }
-        .breadcrumb { display: flex; justify-content: center; gap: 12px; margin-top: 24px; font-size: 14px; color: rgba(255,255,255,0.5); }
-        .breadcrumb a { color: var(--gold-light); }
-        .breadcrumb a:hover { color: var(--gold); }
-
-        .contact-section { padding: 80px 0; background: var(--white); }
-        .contact-section .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
-        .contact-info h2 { font-size: 36px; margin-bottom: 16px; }
-        .contact-info > p { color: var(--gray); font-size: 17px; margin-bottom: 40px; }
-        .contact-methods { display: flex; flex-direction: column; gap: 28px; }
-        .contact-method { display: flex; align-items: flex-start; gap: 20px; padding: 24px; background: var(--offwhite); border-radius: 12px; border: 1px solid var(--light-gray); transition: all 0.3s; }
-        .contact-method:hover { border-color: var(--gold); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
-        .contact-method-icon { width: 52px; height: 52px; background: var(--navy); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 22px; flex-shrink: 0; }
-        .contact-method-info h4 { font-size: 18px; margin-bottom: 4px; }
-        .contact-method-info p { color: var(--gray); font-size: 15px; margin: 0; }
-        .contact-method-info a { color: var(--gold); font-weight: 600; }
-        .contact-method-info a:hover { color: var(--navy); }
-
-        .contact-form-wrapper { background: var(--offwhite); padding: 48px; border-radius: 16px; border: 1px solid var(--light-gray); }
-        .contact-form-wrapper h3 { font-size: 28px; margin-bottom: 8px; }
-        .contact-form-wrapper > p { color: var(--gray); font-size: 15px; margin-bottom: 32px; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--navy); }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 16px; border: 1px solid var(--light-gray); border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 15px; background: var(--white); transition: all 0.3s; }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.15); }
-        .form-group textarea { resize: vertical; min-height: 120px; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .btn-submit { width: 100%; background: var(--navy); color: var(--gold); padding: 16px; border-radius: 8px; font-weight: 600; font-size: 16px; border: 1px solid var(--gold); cursor: pointer; transition: all 0.3s; }
-        .btn-submit:hover { background: var(--gold); color: var(--navy); }
-
-        .branches-section { padding: 100px 0; background: var(--navy); color: var(--white); }
-        .branches-section .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        .branches-section .section-header { text-align: center; margin-bottom: 60px; }
-        .branches-section .section-header h2 { color: var(--white); font-size: 42px; margin-bottom: 16px; }
-        .branches-section .section-header p { color: rgba(255,255,255,0.6); font-size: 18px; }
-        .branches-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-        .branch-card { background: var(--navy-light); border-radius: 16px; padding: 36px 28px; border: 1px solid rgba(201,168,76,0.15); transition: all 0.3s; }
-        .branch-card:hover { border-color: var(--gold); transform: translateY(-4px); }
-        .branch-card h4 { color: var(--gold); font-size: 14px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
-        .branch-card h3 { font-size: 22px; margin-bottom: 12px; color: var(--white); }
-        .branch-card p { color: rgba(255,255,255,0.6); font-size: 15px; margin-bottom: 6px; }
-        .branch-card .hours { color: var(--gold-light); font-size: 13px; margin-top: 12px; }
-
-        .map-section { padding: 0; background: var(--offwhite); }
-        .map-section .container { max-width: 1200px; margin: 0 auto; }
-        .map-placeholder { width: 100%; height: 400px; background: linear-gradient(135deg, #1a2a4a, #0a1628); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 18px; position: relative; overflow: hidden; }
-        .map-placeholder::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('https://kimi-web-img.moonshot.cn/img/weformonline.com/e03327e2505bc230dfa56accf4d7be400094522f.jpg') center/cover; opacity: 0.2; }
-        .map-placeholder span { position: relative; z-index: 1; font-family: 'Playfair Display', serif; font-size: 28px; }
-
-        footer { background: var(--navy); color: var(--white); padding: 80px 0 30px; }
-        footer .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
-        .footer-brand .logo-icon { margin-bottom: 20px; }
-        .footer-brand p { color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.7; margin-bottom: 24px; }
-        .footer-social { display: flex; gap: 12px; }
-        .footer-social a { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 16px; transition: all 0.3s; }
-        .footer-social a:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
-        .footer-col h4 { color: var(--gold); font-size: 16px; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; }
-        .footer-col ul { list-style: none; }
-        .footer-col ul li { margin-bottom: 12px; }
-        .footer-col ul li a { color: rgba(255,255,255,0.6); font-size: 15px; transition: color 0.3s; }
-        .footer-col ul li a:hover { color: var(--gold); }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; display: flex; justify-content: space-between; align-items: center; }
-        .footer-bottom p { color: rgba(255,255,255,0.4); font-size: 13px; }
-
-        @media (max-width: 900px) {
-            .contact-section .container, .branches-grid { grid-template-columns: 1fr; }
-            .form-row { grid-template-columns: 1fr; }
-            .page-header h1 { font-size: 36px; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
-            .nav-links { display: none; }
+        @media (max-width: 480px) {
+            .values-grid, .team-grid { grid-template-columns: 1fr; }
         }
     </style>
 <base target="_blank">
@@ -122,11 +64,10 @@
 <body>
     <div class="top-bar">
         <div class="container">
-            <span>24/7 Support: +1 (800) 555-NOESIS</span>
+            <span>+234 707 094 4581 | Mon–Fri: 8AM–5PM</span>
             <div>
                 <a href="login.html">Internet Banking</a>
                 <a href="contact.html">Find a Branch</a>
-                <a href="contact.html">Help Center</a>
             </div>
         </div>
     </div>
@@ -142,170 +83,153 @@
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="about.html" class="active">About</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
             <a href="login.html" class="nav-cta">Online Login</a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="mobile-nav" id="mobileNav">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html">Online Login</a>
         </div>
     </nav>
 
     <section class="page-header">
         <div class="container">
-            <h1>Get in <span>Touch</span></h1>
-            <p>We're here to help. Reach out through any channel that works for you.</p>
+            <h1>Our <span>Story</span></h1>
+            <p>Two years of building a bank that Nigerians actually love.</p>
             <div class="breadcrumb">
-                <a href="index.html">Home</a> <span>/</span> <span>Contact</span>
+                <a href="index.html">Home</a> <span>/</span> <span>About Us</span>
             </div>
         </div>
     </section>
 
-    <section class="contact-section">
+    <section class="story-section">
         <div class="container">
-            <div class="contact-info">
-                <h2>Contact Information</h2>
-                <p>Our team is available around the clock to assist you with any inquiries.</p>
-                <div class="contact-methods">
-                    <div class="contact-method">
-                        <div class="contact-method-icon">&#9742;</div>
-                        <div class="contact-method-info">
-                            <h4>Phone Support</h4>
-                            <p>+1 (800) 555-NOESIS</p>
-                            <p style="font-size:13px;color:var(--gray);">Available 24/7 for all customers</p>
-                        </div>
-                    </div>
-                    <div class="contact-method">
-                        <div class="contact-method-icon">&#9993;</div>
-                        <div class="contact-method-info">
-                            <h4>Email Us</h4>
-                            <p><a href="mailto:support@noesis.bank">support@noesis.bank</a></p>
-                            <p style="font-size:13px;color:var(--gray);">Response within 2 hours</p>
-                        </div>
-                    </div>
-                    <div class="contact-method">
-                        <div class="contact-method-icon">&#9733;</div>
-                        <div class="contact-method-info">
-                            <h4>Live Chat</h4>
-                            <p><a href="#">Start a conversation</a></p>
-                            <p style="font-size:13px;color:var(--gray);">Instant replies during business hours</p>
-                        </div>
-                    </div>
-                    <div class="contact-method">
-                        <div class="contact-method-icon">&#9874;</div>
-                        <div class="contact-method-info">
-                            <h4>Headquarters</h4>
-                            <p>1 Noesis Plaza, Financial District<br>New York, NY 10005, USA</p>
-                        </div>
-                    </div>
+            <div class="story-visual">
+                <div class="story-visual-inner">
+                    <div class="big-n">N</div>
+                    <p>Est. 2024 — Lagos, Nigeria</p>
                 </div>
             </div>
-            <div class="contact-form-wrapper">
-                <h3>Send Us a Message</h3>
-                <p>Fill out the form below and we'll get back to you shortly.</p>
-                <form>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>First Name</label>
-                            <input type="text" placeholder="John" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Last Name</label>
-                            <input type="text" placeholder="Doe" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" placeholder="john.doe@email.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone Number</label>
-                        <input type="tel" placeholder="+1 (555) 000-0000">
-                    </div>
-                    <div class="form-group">
-                        <label>Department</label>
-                        <select required>
-                            <option value="">Select a department</option>
-                            <option value="personal">Personal Banking</option>
-                            <option value="business">Business Banking</option>
-                            <option value="wealth">Wealth Management</option>
-                            <option value="support">Customer Support</option>
-                            <option value="fraud">Fraud & Security</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Message</label>
-                        <textarea placeholder="How can we help you today?"></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Send Message</button>
-                </form>
+            <div class="story-content">
+                <h2>Founded on <span>Knowledge</span></h2>
+                <p>NOESIS Bank was born in 2024 in Lagos, Nigeria, from a simple belief: Nigerians deserve a bank that understands them. Not a foreign bank with a local branch — but a bank built here, for here.</p>
+                <p>We started with a team of 8 people, one office in Lekki, and a dream to make banking painless. Today, we're 50,000 customers strong with 12 branches across the country — and we're just getting started.</p>
+                <div class="story-quote">"We don't just hold your money. We help it grow."</div>
+                <p>Licensed by the Central Bank of Nigeria and insured by NDIC, NOESIS combines the trust of traditional banking with the speed and convenience of fintech. Every feature we build starts with one question: <em>Does this make life easier for our customers?</em></p>
             </div>
         </div>
     </section>
 
-    <section class="branches-section">
+    <section class="values-section">
         <div class="container">
             <div class="section-header">
-                <h2>Our Branches</h2>
-                <p>Visit us at any of our locations worldwide.</p>
+                <h2>Our Core Values</h2>
+                <p>The principles that guide everything we do.</p>
             </div>
-            <div class="branches-grid">
-                <div class="branch-card">
-                    <h4>Headquarters</h4>
-                    <h3>New York</h3>
-                    <p>1 Noesis Plaza, Financial District</p>
-                    <p>New York, NY 10005</p>
-                    <p>+1 (212) 555-0100</p>
-                    <p class="hours">Mon–Fri: 8AM–6PM | Sat: 9AM–2PM</p>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">&#9733;</div>
+                    <h3>Integrity</h3>
+                    <p>Your money is sacred. We operate with complete transparency, always.</p>
                 </div>
-                <div class="branch-card">
-                    <h4>Regional Office</h4>
-                    <h3>London</h3>
-                    <p>45 Canary Wharf Tower</p>
-                    <p>London, E14 5AB, UK</p>
-                    <p>+44 20 7946 0958</p>
-                    <p class="hours">Mon–Fri: 9AM–5PM | Sat: 10AM–2PM</p>
+                <div class="value-card">
+                    <div class="value-icon">&#9733;</div>
+                    <h3>Innovation</h3>
+                    <p>We build tools that solve real problems for real Nigerians.</p>
                 </div>
-                <div class="branch-card">
-                    <h4>Regional Office</h4>
-                    <h3>Singapore</h3>
-                    <p>88 Marina Bay Financial Centre</p>
-                    <p>Singapore 018982</p>
-                    <p>+65 6123 4567</p>
-                    <p class="hours">Mon–Fri: 9AM–6PM | Sat: 9AM–1PM</p>
+                <div class="value-card">
+                    <div class="value-icon">&#9733;</div>
+                    <h3>Accessibility</h3>
+                    <p>Banking should work for everyone — from Kano to Port Harcourt.</p>
                 </div>
-                <div class="branch-card">
-                    <h4>Regional Office</h4>
-                    <h3>Dubai</h3>
-                    <p>Level 42, Burj Daman Tower</p>
-                    <p>Dubai International Financial Centre</p>
-                    <p>+971 4 555 8900</p>
-                    <p class="hours">Sun–Thu: 8AM–5PM | Sat: 9AM–1PM</p>
-                </div>
-                <div class="branch-card">
-                    <h4>Flagship Branch</h4>
-                    <h3>Los Angeles</h3>
-                    <p>888 Wilshire Boulevard</p>
-                    <p>Los Angeles, CA 90017</p>
-                    <p>+1 (213) 555-0200</p>
-                    <p class="hours">Mon–Fri: 8AM–6PM | Sat: 9AM–3PM</p>
-                </div>
-                <div class="branch-card">
-                    <h4>Flagship Branch</h4>
-                    <h3>Toronto</h3>
-                    <p>200 Bay Street, Suite 3000</p>
-                    <p>Toronto, ON M5J 2J1, Canada</p>
-                    <p>+1 (416) 555-0300</p>
-                    <p class="hours">Mon–Fri: 8:30AM–5PM | Sat: 9AM–2PM</p>
+                <div class="value-card">
+                    <div class="value-icon">&#9733;</div>
+                    <h3>Community</h3>
+                    <p>We invest in Nigerian SMEs and youth entrepreneurship programs.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="map-section">
-        <div class="container" style="padding: 0 24px;">
-            <div class="map-placeholder">
-                <span>Interactive Map — 150+ Global Locations</span>
+    <section class="timeline-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Journey</h2>
+                <p>From an idea to a bank in 24 months.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <h3>The Beginning</h3>
+                    <p>NOESIS Bank receives CBN license. Opens first branch in Lekki, Lagos with a team of 8.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <h3>Digital Launch</h3>
+                    <p>NOESIS Mobile app goes live. 10,000 customers in the first 3 months.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <h3>Going National</h3>
+                    <p>Expanded to Abuja, Port Harcourt, and Ibadan. Launched SME lending program.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2026</div>
+                    <h3>50,000 Strong</h3>
+                    <p>Celebrated 50,000 customers and ₦12 billion in assets under management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Leadership Team</h2>
+                <p>The people building the future of Nigerian banking.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-img">&#9786;</div>
+                    <div class="team-info">
+                        <h4>Moyinoluwa Samuel</h4>
+                        <p>Founder & CEO</p>
+                        <span>Tech entrepreneur & finance strategist</span>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-img">&#9786;</div>
+                    <div class="team-info">
+                        <h4>Chioma Nwosu</h4>
+                        <p>Chief Operations Officer</p>
+                        <span>15 years in Nigerian banking</span>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-img">&#9786;</div>
+                    <div class="team-info">
+                        <h4>Tunde Bakare</h4>
+                        <p>Chief Technology Officer</p>
+                        <span>Former lead engineer at Paystack</span>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-img">&#9786;</div>
+                    <div class="team-info">
+                        <h4>Amina Bello</h4>
+                        <p>Chief Risk Officer</p>
+                        <span>Regulatory & compliance expert</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -315,12 +239,12 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo-icon">N</div>
-                    <p>NOESIS Bank & Trust — Where knowledge meets prosperity. Building financial futures with integrity, innovation, and insight since 1987.</p>
+                    <p>NOESIS Bank & Trust — A new-generation Nigerian bank built on knowledge, trust, and innovation. Licensed by the Central Bank of Nigeria.</p>
                     <div class="footer-social">
-                        <a href="#">f</a>
+                        <a href="https://x.com/SamuelOLUWA288">X</a>
                         <a href="#">in</a>
-                        <a href="#">X</a>
                         <a href="#">ig</a>
+                        <a href="https://wa.me/2347070944581">WA</a>
                     </div>
                 </div>
                 <div class="footer-col">
@@ -329,17 +253,14 @@
                         <li><a href="services.html">Personal Accounts</a></li>
                         <li><a href="services.html">Business Accounts</a></li>
                         <li><a href="services.html">Credit Cards</a></li>
-                        <li><a href="services.html">Loans & Mortgages</a></li>
-                        <li><a href="services.html">Investments</a></li>
+                        <li><a href="services.html">Loans</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>
                     <ul>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="about.html">Leadership</a></li>
                         <li><a href="about.html">Careers</a></li>
-                        <li><a href="about.html">Press & Media</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -349,16 +270,25 @@
                         <li><a href="login.html">Internet Banking</a></li>
                         <li><a href="contact.html">Help Center</a></li>
                         <li><a href="contact.html">Find a Branch</a></li>
-                        <li><a href="contact.html">Report Fraud</a></li>
-                        <li><a href="contact.html">Accessibility</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 NOESIS Bank & Trust. All rights reserved. Member FDIC. Equal Housing Lender.</p>
-                <p>Privacy Policy | Terms of Service | Cookie Policy</p>
+                <p>&copy; 2026 NOESIS Bank & Trust. Licensed by CBN. NDIC Insured.</p>
+                <p class="footer-x-handle">X: @SamuelOLUWA288 | +234 707 094 4581</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        }
+        const user = JSON.parse(localStorage.getItem('noesisUser'));
+        if (user && user.name) {
+            document.querySelector('.nav-cta').textContent = 'My Account';
+            document.querySelector('.nav-cta').href = 'dashboard.html';
+        }
+    </script>
 </body>
 </html>
